@@ -21,7 +21,7 @@ cd ../..
 python3 -u src/main.py \
   --dataset cub_200_2011 \
   --download \
-  --backbone vit_small_patch16_224 \
+  --backbone vit_base_patch16_224.augreg2_in21k_ft_in1k \
   --pretrained \
   --epochs 300 \
   --batch-size 32 \

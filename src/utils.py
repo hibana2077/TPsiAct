@@ -48,7 +48,7 @@ def get_transforms(
     Get data transforms based on augmentation strategy.
     
     Args:
-        augmentation: Type of augmentation ('standard', 'simclr', 'autoaug', 'randaug', 'none')
+        augmentation: Type of augmentation ('standard', 'autoaug', 'randaug', 'none')
         image_size: Target image size
         is_train: Whether this is for training or evaluation
     
@@ -87,18 +87,6 @@ def get_transforms(
             normalize
         ])
     
-    elif augmentation == 'simclr':
-        # SimCLR-style augmentation
-        color_jitter = transforms.ColorJitter(0.4, 0.4, 0.4, 0.1)
-        return transforms.Compose([
-            transforms.RandomResizedCrop(image_size, scale=(0.2, 1.0)),
-            transforms.RandomHorizontalFlip(),
-            transforms.RandomApply([color_jitter], p=0.8),
-            transforms.RandomGrayscale(p=0.2),
-            transforms.GaussianBlur(kernel_size=int(0.1 * image_size) // 2 * 2 + 1),
-            transforms.ToTensor(),
-            normalize
-        ])
     
     elif augmentation == 'autoaug':
         return transforms.Compose([
@@ -116,18 +104,7 @@ def get_transforms(
             normalize
         ])
     
-    elif augmentation == 'yuki':
-        # Custom augmentation similar to original scripts
-        return transforms.Compose([
-            transforms.RandomResizedCrop(image_size, scale=(0.5, 1.0)),
-            transforms.RandomHorizontalFlip(p=0.5),
-            transforms.RandomVerticalFlip(p=0.2),
-            transforms.RandomRotation(30),
-            transforms.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.15),
-            transforms.RandomGrayscale(p=0.1),
-            transforms.ToTensor(),
-            normalize
-        ])
+    # Note: SimCLR-style and custom 'yuki' augmentations removed
     
     else:
         raise ValueError(f"Unknown augmentation: {augmentation}")

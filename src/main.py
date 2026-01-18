@@ -149,7 +149,7 @@ def parse_args():
     aug_group = parser.add_argument_group('Augmentation')
     aug_group.add_argument(
         '--augmentation', type=str, default='standard',
-        choices=['none', 'standard', 'simclr', 'autoaug', 'randaug', 'yuki'],
+        choices=['none', 'standard', 'autoaug', 'randaug'],
         help='Data augmentation strategy'
     )
     aug_group.add_argument(

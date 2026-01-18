@@ -25,7 +25,6 @@ python3 -u src/main.py \
   --pretrained \
   --use-tpsiact \
   --tpsiact-nu 5.0 \
-  --augmentation yuki \
   --epochs 300 \
   --batch-size 32 \
   --lr 1e-3 \

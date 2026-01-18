@@ -10,7 +10,7 @@
 
 module load cuda/12.6.2
 
-source /scratch/yp87/sl5952/YUKI/.venv/bin/activate
+source /scratch/yp87/sl5952/TPsiAct/.venv/bin/activate
 export HF_HOME="/scratch/yp87/sl5952/CARROT/.cache"
 export HF_HUB_OFFLINE=1
 
@@ -24,7 +24,6 @@ python3 -u src/main.py \
   --pretrained \
   --use-tpsiact \
   --tpsiact-nu 3.0 \
-  --augmentation simclr \
   --epochs 300 \
   --batch-size 32 \
   --lr 1e-3 \

@@ -23,7 +23,6 @@ python3 -u src/main.py \
   --download \
   --backbone resnet50 \
   --pretrained \
-  --augmentation simclr \
   --epochs 300 \
   --batch-size 32 \
   --lr 1e-3 \

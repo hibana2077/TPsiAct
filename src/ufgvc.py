@@ -26,6 +26,11 @@ class UFGVCDataset(Dataset):
     
     # Available datasets configuration
     DATASETS = {
+        'cifar10': {
+            'url': 'https://huggingface.co/datasets/hibana2077/CV-dataset-all-in-parquet/resolve/main/datasets/cifar10.parquet?download=true',
+            'filename': 'cifar10.parquet',
+            'description': 'CIFAR-10 dataset for image classification'
+        },
         'cotton80': {
             'url': 'https://huggingface.co/datasets/hibana2077/CV-dataset-all-in-parquet/resolve/main/datasets/ufgvc/cotton80_dataset.parquet?download=true',
             'filename': 'cotton80_dataset.parquet',

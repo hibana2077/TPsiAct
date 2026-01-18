@@ -17,7 +17,7 @@ export HF_HUB_OFFLINE=1
 cd ../..
 
 # T000: Baseline experiment (no TPsiAct) on CUB-200-2011
-# Uses ResNet50 backbone with SimCLR augmentation
+# Uses ResNet50 backbone
 python3 -u src/main.py \
   --dataset cub_200_2011 \
   --download \

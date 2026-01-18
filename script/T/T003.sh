@@ -16,14 +16,15 @@ export HF_HUB_OFFLINE=1
 
 cd ../..
 
-# T003: TPsiAct with nu=10 (lighter tails, closer to Gaussian)
+# T003: TPsiAct experiment on CUB-200-2011
+# Uses ViT backbone with TPsiAct activation
 python3 -u src/main.py \
   --dataset cub_200_2011 \
   --download \
-  --backbone resnet50 \
+  --backbone vit_small_patch16_224 \
   --pretrained \
   --use-tpsiact \
-  --tpsiact-nu 10.0 \
+  --tpsiact-nu 5.0 \
   --epochs 300 \
   --batch-size 32 \
   --lr 1e-3 \
@@ -31,6 +32,7 @@ python3 -u src/main.py \
   --optimizer adamw \
   --scheduler cosine \
   --warmup-epochs 10 \
+  --label-smoothing 0.1 \
   --knn-k 200 \
   --knn-chunk-size 200 \
   --eval-knn-every 5 \
@@ -40,5 +42,5 @@ python3 -u src/main.py \
   --save-summary-csv \
   --save-final-pt \
   --save-dir ./experiments \
-  --experiment-name "T003_tpsiact_resnet50_cub200_nu10" \
+  --experiment-name "T003_tpsiact_vit_small_cub200_nu5" \
   >> "T003.log" 2>&1

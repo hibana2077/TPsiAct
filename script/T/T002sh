@@ -16,17 +16,16 @@ export HF_HUB_OFFLINE=1
 
 cd ../..
 
-# T004: TPsiAct with ViT backbone
+# T002: Baseline experiment (no TPsiAct) on CUB-200-2011
+# Uses vit backbone
 python3 -u src/main.py \
   --dataset cub_200_2011 \
   --download \
   --backbone vit_small_patch16_224 \
   --pretrained \
-  --use-tpsiact \
-  --tpsiact-nu 5.0 \
   --epochs 300 \
   --batch-size 32 \
-  --lr 5e-4 \
+  --lr 1e-3 \
   --weight-decay 1e-4 \
   --optimizer adamw \
   --scheduler cosine \
@@ -40,5 +39,5 @@ python3 -u src/main.py \
   --save-summary-csv \
   --save-final-pt \
   --save-dir ./experiments \
-  --experiment-name "T004_tpsiact_vit_small_cub200" \
-  >> "T004.log" 2>&1
+  --experiment-name "T002_baseline_vit_small_cub200" \
+  >> "T002.log" 2>&1
